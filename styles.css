@@ -39,6 +39,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -389,8 +390,12 @@ a {
   text-align: center;
 }
 
+h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   font-family: var(--serif);
   font-weight: 500;
@@ -603,6 +608,7 @@ h3 {
 .designer-track {
   position: relative;
   min-height: min(78svh, 48rem);
+  overflow-x: hidden;
 }
 
 .designer-slide {
