@@ -231,20 +231,44 @@
       <section class="guests" id="special-guests">
         <div class="section-inner reveal">
           <p class="section-number">06</p>
-          <h2>Special Guests</h2>
+          <h2>Special Guests & Partners</h2>
         </div>
-        <div class="logo-marquee" aria-label="Guest categories">
-          <div class="logo-track">
-            <span>VIP Guest</span>
-            <span>Media Partner</span>
-            <span>Fashion Community</span>
-            <span>Brand Partner</span>
-            <span>Sponsor</span>
-            <span>VIP Guest</span>
-            <span>Media Partner</span>
-            <span>Fashion Community</span>
-            <span>Brand Partner</span>
-            <span>Sponsor</span>
+        
+        <div class="partners-container">
+          <h3 class="partner-title">Sponsors</h3>
+          <div class="logo-marquee" aria-label="Sponsors">
+            <div class="logo-track">
+              <img src="assets/sponsor/JF3WyPSeKCB4u6i6BdScHdhwV7DWWb2Iq9Y3ZK9z.png" alt="Sponsor" class="partner-logo">
+              <img src="assets/sponsor/Melodia.png" alt="Sponsor" class="partner-logo">
+              <img src="assets/sponsor/WhatsApp Image 2026-06-18 at 17.21.41.jpeg" alt="Sponsor" class="partner-logo">
+              <img src="assets/sponsor/WhatsApp Image 2026-06-18 at 20.23.42.jpeg" alt="Sponsor" class="partner-logo">
+              <img src="assets/sponsor/Zap.jpg" alt="Sponsor" class="partner-logo">
+              <img src="assets/sponsor/cbb9fd033d511f684d61ed26d76a40b6.webp" alt="Sponsor" class="partner-logo">
+              <img src="assets/sponsor/cleo-logo-png_seeklogo-500137.png" alt="Sponsor" class="partner-logo">
+              <img src="assets/sponsor/logo-juva-big.webp" alt="Sponsor" class="partner-logo">
+              <!-- Duplicate for seamless scroll -->
+              <img src="assets/sponsor/JF3WyPSeKCB4u6i6BdScHdhwV7DWWb2Iq9Y3ZK9z.png" alt="Sponsor" class="partner-logo">
+              <img src="assets/sponsor/Melodia.png" alt="Sponsor" class="partner-logo">
+              <img src="assets/sponsor/WhatsApp Image 2026-06-18 at 17.21.41.jpeg" alt="Sponsor" class="partner-logo">
+              <img src="assets/sponsor/WhatsApp Image 2026-06-18 at 20.23.42.jpeg" alt="Sponsor" class="partner-logo">
+              <img src="assets/sponsor/Zap.jpg" alt="Sponsor" class="partner-logo">
+              <img src="assets/sponsor/cbb9fd033d511f684d61ed26d76a40b6.webp" alt="Sponsor" class="partner-logo">
+              <img src="assets/sponsor/cleo-logo-png_seeklogo-500137.png" alt="Sponsor" class="partner-logo">
+              <img src="assets/sponsor/logo-juva-big.webp" alt="Sponsor" class="partner-logo">
+            </div>
+          </div>
+          
+          <h3 class="partner-title">Media Partners</h3>
+          <div class="logo-marquee" aria-label="Media Partners">
+            <div class="logo-track reverse">
+              <img src="assets/media partner/LOGO WB.png.png" alt="Media Partner" class="partner-logo">
+              <img src="assets/media partner/Logo SBY BLITZ.PNG" alt="Media Partner" class="partner-logo">
+              <img src="assets/media partner/png-transparent-jakarta-logo-organization-sports-page-weekly-inc-business-surabaya-angle-text-logo.png" alt="Media Partner" class="partner-logo">
+              <!-- Duplicate for seamless scroll -->
+              <img src="assets/media partner/LOGO WB.png.png" alt="Media Partner" class="partner-logo">
+              <img src="assets/media partner/Logo SBY BLITZ.PNG" alt="Media Partner" class="partner-logo">
+              <img src="assets/media partner/png-transparent-jakarta-logo-organization-sports-page-weekly-inc-business-surabaya-angle-text-logo.png" alt="Media Partner" class="partner-logo">
+            </div>
           </div>
         </div>
       </section>
@@ -253,19 +277,8 @@
         <div class="section-inner reveal">
           <p class="section-number">07</p>
           <h2>RSVP</h2>
-          <div class="rsvp-grid">
-            <a href="mailto:rsvp@fairwaynine.example?subject=Apply%20Designer%20-%20The%20Fashion%20Way">
-              <span>For Designer</span>
-              <strong>Apply Designer</strong>
-            </a>
-            <a href="mailto:rsvp@fairwaynine.example?subject=VIP%20Attendance%20-%20The%20Fashion%20Way">
-              <span>For VIP</span>
-              <strong>Confirm Attendance</strong>
-            </a>
-            <a href="mailto:rsvp@fairwaynine.example?subject=Media%20Registration%20-%20The%20Fashion%20Way">
-              <span>For Media</span>
-              <strong>Media Registration</strong>
-            </a>
+          <div class="rsvp-action">
+            <button id="open-rsvp-btn" class="enter-button rsvp-button">RSVP Now</button>
           </div>
         </div>
       </section>
@@ -298,6 +311,33 @@
           <p>Presented by Fairway Nine Mall</p>
         </div>
       </section>
+
+      <div id="rsvp-modal" class="modal" aria-hidden="true">
+        <div class="modal-overlay" tabindex="-1"></div>
+        <div class="modal-content" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+          <button id="close-rsvp-btn" class="modal-close" aria-label="Close modal">&times;</button>
+          <h2 id="modal-title">Registration</h2>
+          <form id="rsvp-form">
+            <div class="form-group">
+              <label for="rsvp-name">Nama</label>
+              <input type="text" id="rsvp-name" name="name" required placeholder="Masukkan nama Anda">
+            </div>
+            <div class="form-group">
+              <label for="rsvp-role">Sebagai</label>
+              <select id="rsvp-role" name="role" required>
+                <option value="" disabled selected>Pilih kategori...</option>
+                <option value="Pengunjung">Pengunjung</option>
+                <option value="Designer">Designer</option>
+                <option value="Media">Media Partner</option>
+                <option value="Sponsor">Sponsor</option>
+                <option value="VIP">VIP</option>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+            </div>
+            <button type="submit" class="enter-button form-submit">Kirim RSVP</button>
+          </form>
+        </div>
+      </div>
     </main>
 
     <script src="script.js"></script>
