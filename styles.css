@@ -827,18 +827,11 @@ h3 {
 .logo-track {
   display: flex;
   align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
   min-height: 5rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem) 0;
   width: max-content;
   will-change: transform;
-}
-
-.logo-set {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(1.25rem, 3vw, 2.5rem);
-  min-width: 100vw;
-  padding: clamp(1.5rem, 3vw, 2.25rem) 0;
 }
 
 .sponsor-track {
@@ -846,7 +839,7 @@ h3 {
 }
 
 .media-track {
-  animation: marquee-media 22s linear infinite;
+  animation: marquee-media 24s linear infinite;
 }
 
 .logo-track span {
