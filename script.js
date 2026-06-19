@@ -79,6 +79,24 @@ const openRsvpBtn = document.getElementById("open-rsvp-btn");
 const closeRsvpBtn = document.getElementById("close-rsvp-btn");
 const rsvpModal = document.getElementById("rsvp-modal");
 const rsvpForm = document.getElementById("rsvp-form");
+const rsvpWhatsAppNumber = "6282223370909";
+
+function buildRsvpWhatsAppUrl(name, role) {
+  const phoneNumber = rsvpWhatsAppNumber.replace(/\D/g, "");
+
+  if (!phoneNumber) {
+    return "";
+  }
+
+  const message = [
+    "Halo, saya ingin RSVP untuk The Fashion Way Designer's Runway.",
+    "",
+    `Nama: ${name}`,
+    `Sebagai: ${role}`,
+  ].join("\n");
+
+  return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+}
 
 if (openRsvpBtn && closeRsvpBtn && rsvpModal) {
   openRsvpBtn.addEventListener("click", () => {
@@ -105,12 +123,18 @@ if (openRsvpBtn && closeRsvpBtn && rsvpModal) {
     rsvpForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const formData = new FormData(rsvpForm);
-      const name = formData.get("name");
+      const name = formData.get("name")?.trim();
       const role = formData.get("role");
+      const whatsappUrl = buildRsvpWhatsAppUrl(name, role);
 
-      alert(`Terima kasih ${name}, Anda telah terdaftar sebagai ${role}.`);
+      if (!whatsappUrl) {
+        alert("Nomor WhatsApp RSVP belum diatur.");
+        return;
+      }
+
       closeModal();
       rsvpForm.reset();
+      window.location.href = whatsappUrl;
     });
   }
 }
